@@ -7,7 +7,7 @@ module.exports = {
             const reg = await models.products.create(req.body);
             res.status(200).json(reg);
         } catch (error) {
-            res.status(500).send({
+            res.status(400).send({
                 message: 'Ocurrió un error'
             });
             next(error);
@@ -22,7 +22,7 @@ module.exports = {
             });
             res.status(200).json(reg);
         } catch (error) {
-            res.status(500).send({
+            res.status(400).send({
                 message: 'Ocurrió un error'
             });
             next(error);
@@ -40,7 +40,7 @@ module.exports = {
             }, {where: {id: req.body.id}});
             res.status(200).json(reg);
         } catch (error) {
-            res.status(500).send({
+            res.status(400).send({
                 message: 'Ocurrió un error'
             });
             next(error)
@@ -51,7 +51,7 @@ module.exports = {
             const reg = await models.products.update({status: 1}, {where: {id: req.body.id}});
             res.status(200).json(reg);
         } catch (error) {
-            res.status(500).send({
+            res.status(400).send({
                 message: 'Ocurrió un error'
             });
             next(error);
@@ -62,7 +62,7 @@ module.exports = {
             const reg = await models.products.update({status: 0}, {where: {id: req.body.id}});
             res.status(200).json(reg);
         } catch (error) {
-            res.status(500).send({
+            res.status(400).send({
                 message: 'Ocurrió un error'
             });
             next(error);
