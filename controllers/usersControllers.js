@@ -25,6 +25,7 @@ module.exports = {
             res.status(500).send({
                 message: 'Ocurrió un error!'
             });
+            next(error);
         }
     },
     add: async(req, res, next) => {
