@@ -53,7 +53,7 @@ module.exports = {
     update: async(req, res, next) => {
         try {
             let clave = req.body.password;
-            const reg = await models.users.findOne({ where: {mail: req.body.mail}});
+            const reg = await models.users.findOne({ where: {email: req.body.email}});
             if (clave != reg.password) {
                 req.body.password = await bcrypt.hash(req.body.password, 10);
             }
