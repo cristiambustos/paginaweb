@@ -2,8 +2,11 @@ const models = require('../models');
 const bcrypt = require('bcryptjs');
 const token = require('../Service/token.js');
 
+
 module.exports = {
     login: async(req, res, next) => {
+        console.log(req.body.email);
+        console.log(req.body.password);
         try {
             let user = await models.users.findOne({ where: { email: req.body.email}});
             if (user) {
